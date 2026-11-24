@@ -1,4 +1,6 @@
 import acm.program.GraphicsProgram;
+import acm.graphics.GRect;
+import java.awt.Color;
 
 
 
