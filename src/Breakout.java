@@ -1,7 +1,7 @@
 import acm.program.GraphicsProgram;
 import acm.graphics.GRect;
 import java.awt.Color;
-
+import acm.graphics.GLabel;
 
 
 public class Breakout extends GraphicsProgram{
@@ -10,6 +10,26 @@ public class Breakout extends GraphicsProgram{
 
     public void run(){
         setSize(WIDTH, HEIGHT);
+
+    }
+
+
+    private void drawBricks(){
+
+    }
+
+
+    private void drawPaddle(){
+
+    }
+
+
+    private void drawBall(){
+
+    }
+
+
+    private void drawMessage(){
 
     }
 
