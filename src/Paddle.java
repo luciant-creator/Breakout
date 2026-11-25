@@ -14,5 +14,13 @@ public class Paddle {
         x += speed;
         if (x > 700){x = 700;}
     }
+
+
+    public void reset(){
+        x = 300;
+    }
+
+    public double getX(){return x;}
+    public double getY(){return y;}
 }
 
