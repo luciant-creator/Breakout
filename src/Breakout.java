@@ -2,6 +2,8 @@ import acm.program.GraphicsProgram;
 import acm.graphics.GRect;
 import java.awt.Color;
 import acm.graphics.GLabel;
+import java.awt.event.KeyEvent;
+
 
 
 public class Breakout extends GraphicsProgram{
@@ -11,6 +13,7 @@ public class Breakout extends GraphicsProgram{
     public void init(){
         setSize(WIDTH, HEIGHT);
         setBackground(new Color(20, 25, 40));
+        addKeyListeners();
     }
 
     public void run(){
