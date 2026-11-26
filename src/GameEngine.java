@@ -43,6 +43,7 @@ public class GameEngine {
         ball.move();
         checkWallCollision();
         checkPaddleCollision();
+        checkBrickCollision();
 
     }
 
@@ -99,4 +100,24 @@ public class GameEngine {
             }
         }
     }
+
+    private void checkLosingBall(){
+        if (ball.getY() + ball.getSize() > 600){
+            lives --;
+            if (lives <= 0){
+                state = GameState.GAME_OVER;
+                saveScore();
+            } else {
+                state = GameState.READY;
+                ball.reset(paddle);
+            }
+        }
+    }
+
+    private void saveScore(){
+        storage.saveHighScore(score);
+    }
+
+
+
 }
