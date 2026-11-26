@@ -3,6 +3,7 @@ public class Brick {
     private final double y;
     private final double width = 85;
     private final double height = 25;
+    private boolean destroyed = false;
 
 
     public Brick(int row, int col){
@@ -11,7 +12,17 @@ public class Brick {
     }
 
     public boolean hit(){
+        if (destroyed){
+            return false;
+        }
+        destroyed = true;
         return true;
     }
+
+
+    public double getX(){return x;}
+    public double getY(){return y;}
+    public double getWidth(){return width;}
+    public double getHeight(){return height;}
 
 }
