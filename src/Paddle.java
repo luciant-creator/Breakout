@@ -5,6 +5,10 @@ public class Paddle {
     private final double height = 15;
     private final double speed = 8;
 
+    public Paddle(){
+
+    }
+
     public void moveLeft(){
         x -= speed;
         if (x < 0){x =0;}
@@ -22,5 +26,7 @@ public class Paddle {
 
     public double getX(){return x;}
     public double getY(){return y;}
+    public double getWidth(){return width;}
+    public double getHeight(){return height;}
 }
 
