@@ -11,6 +11,16 @@ public class GameEngine {
 
     public GameEngine(HighScoreStorage st) {
         storage = st;
+        makeBricks();
+    }
+
+
+    public void makeBricks(){
+        for (int i = 0; i < 5; i++){
+            for (int j = 0; j < 8; j++){
+                bricks[i][j] = new Brick(i, j);
+            }
+        }
     }
 
 }
