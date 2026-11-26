@@ -120,4 +120,12 @@ public class GameEngine {
 
 
 
+
+    public Paddle getPaddle() {return paddle;}
+    public Ball getBall() {return ball;}
+    public Brick[][] getBricks() {return bricks;}
+    public GameState getState() {return state;}
+    public int getScore() {return score;}
+    public int getLives() {return lives;}
+    public int getHighScore() { return storage.loadHighScore();}
 }
