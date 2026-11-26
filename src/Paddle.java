@@ -6,7 +6,6 @@ public class Paddle {
     private final double speed = 8;
 
     public Paddle(){
-
     }
 
     public void moveLeft(){
