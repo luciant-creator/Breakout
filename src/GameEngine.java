@@ -23,4 +23,41 @@ public class GameEngine {
         }
     }
 
+    public void update(boolean left, boolean right){
+        if (state == GameState.GAME_OVER || state == GameState.VICTORY || state == GameState.PAUSED){
+            return;
+        }
+
+        if (left){paddle.moveLeft();}
+        if (right){paddle.moveRight();}
+
+        if (state == GameState.READY){
+            ball.reset(paddle);
+            return;
+        }
+
+        ball.move();
+        checkWallCollision();
+
+    }
+
+    private void checkWallCollision(){
+        if (ball.getX() <= 0){
+            ball.setX(0);
+            ball.reverseX();
+        }
+
+        if (ball.getX() + ball.getSize() >= 800){
+            ball.setX(800 - ball.getSize());
+            ball.reverseX();
+        }
+
+        if (ball.getY() <= 35){
+            ball.setY(35);
+            ball.reverseY();
+        }
+    }
+
+
+
 }
