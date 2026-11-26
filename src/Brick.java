@@ -24,5 +24,6 @@ public class Brick {
     public double getY(){return y;}
     public double getWidth(){return width;}
     public double getHeight(){return height;}
+    public boolean isDestroyed(){return destroyed;}
 
 }
