@@ -9,6 +9,8 @@ import java.awt.event.KeyEvent;
 public class Breakout extends GraphicsProgram{
     private static final int WIDTH = 800;
     private static final int HEIGHT = 600;
+    public boolean leftPressed = false;
+    public boolean rightPressed = false;
 
     public void init(){
         setSize(WIDTH, HEIGHT);
@@ -17,6 +19,14 @@ public class Breakout extends GraphicsProgram{
     }
 
     public void run(){
+    }
+
+
+    public void keyPressed(KeyEvent e){
+        int key = e.getKeyCode();
+
+        if(key == KeyEvent.VK_LEFT){leftPressed = true;}
+        if(key == KeyEvent.VK_RIGHT){rightPressed = true;}
     }
 
 
