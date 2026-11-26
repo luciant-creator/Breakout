@@ -17,7 +17,7 @@ public class Paddle {
 
 
     public void reset(){
-        x = 300;
+        x = 350;
     }
 
     public double getX(){return x;}
