@@ -49,6 +49,9 @@ public class Breakout extends GraphicsProgram{
     }
 
     private void drawGame(){
+        removeAll();
+
+
         drawStatus();
         drawBall();
         drawBricks();
@@ -72,6 +75,11 @@ public class Breakout extends GraphicsProgram{
 
 
     private void drawBricks(){
+        Color[] colors = {new Color(235, 85, 80),
+                new Color(245, 145, 75),
+                new Color(245, 205, 80),
+                new Color(105, 190, 125),
+                new Color(75, 175, 190)};
 
         Brick[][] bricks = game.getBricks();
         for (int i = 0; i < 5; i ++){
@@ -80,7 +88,7 @@ public class Breakout extends GraphicsProgram{
                 if(!brick.isDestroyed()){
                     GRect rectan = new GRect(brick.getX(), brick.getY(), brick.getWidth(), brick.getHeight());
                     rectan.setFilled(true);
-                    rectan.setFillColor(new Color(255, 255, 255));
+                    rectan.setFillColor(colors[i]);
                     add(rectan);
                 }
             }
