@@ -17,7 +17,7 @@ public class Ball {
     }
 
     public void ballStart(){
-        vx = 1;
+        vx = 2;
         vy = -Math.sqrt(startingSpeed * startingSpeed - vx * vx);
     }
 

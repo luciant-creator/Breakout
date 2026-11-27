@@ -44,6 +44,8 @@ public class GameEngine {
         checkWallCollision();
         checkPaddleCollision();
         checkBrickCollision();
+        checkLosingBall();
+        checkVictory();
 
     }
 
@@ -116,6 +118,38 @@ public class GameEngine {
 
     private void saveScore(){
         storage.saveHighScore(score);
+    }
+
+    public int remainingBricks(){
+        int count = 0;
+        for (int i = 0; i < 5; i++){
+            for (int j = 0; j < 8; j++){
+                if (!bricks[i][j].isDestroyed()){
+                    count ++;
+                }
+            }
+        }
+        return count;
+    }
+
+
+
+    public void checkVictory(){
+        if (remainingBricks() == 0){
+            state = GameState.VICTORY;
+            saveScore();
+        }
+    }
+
+
+    public void reset(){
+        score = 0;
+        lives = 3;
+        paddle.reset();
+        ball.reset(paddle);
+        makeBricks();
+        state = GameState.READY;
+
     }
 
 
