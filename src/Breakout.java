@@ -1,3 +1,4 @@
+import acm.graphics.GOval;
 import acm.program.GraphicsProgram;
 import acm.graphics.GRect;
 import java.awt.Color;
@@ -72,20 +73,57 @@ public class Breakout extends GraphicsProgram{
 
     private void drawBricks(){
 
+        Brick[][] bricks = game.getBricks();
+        for (int i = 0; i < 5; i ++){
+            for (int j = 0; j < 8; j ++){
+                Brick brick = bricks[i][j];
+                if(!brick.isDestroyed()){
+                    GRect rectan = new GRect(brick.getX(), brick.getY(), brick.getWidth(), brick.getHeight());
+                    rectan.setFilled(true);
+                    rectan.setFillColor(new Color(255, 255, 255));
+                    add(rectan);
+                }
+            }
+        }
+
     }
 
 
     private void drawPaddle(){
+        Paddle paddle = game.getPaddle();
+        GRect rectangle = new GRect(paddle.getX(), paddle.getY(), paddle.getWidth(), paddle.getHeight());
+        rectangle.setFilled(true);
+        rectangle.setFillColor(new Color(80, 205, 220));
+        add(rectangle);
 
     }
 
 
     private void drawBall(){
+        Ball ball = game.getBall();
+        GOval circle = new GOval(ball.getX(), ball.getY(), ball.getSize(), ball.getSize());
+        circle.setFilled(true);
+        circle.setFillColor(new Color(255, 255, 255));
+        add(circle);
 
     }
 
 
     private void drawMessage(){
+        GameState state = game.getState();
+        String message = null;
+
+        if (state == GameState.READY) {message = "Press SPACE to start";}
+        if (state == GameState.PAUSED) {message = "PAUSED - Press P to continue";}
+        if (state == GameState.GAME_OVER) {message = "GAME OVER - Press R to restart";}
+        if (state == GameState.VICTORY) {message = "VICTORY - Press R to paly again";}
+
+        if (message != null) {
+            GLabel label = new GLabel(message);
+            label.setColor(new Color(255, 255, 255));
+            double x = (WIDTH - label.getWidth()) / 2.0;
+            add(label, x, 330);
+        }
 
     }
 
