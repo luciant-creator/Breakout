@@ -11,14 +11,22 @@ public class Breakout extends GraphicsProgram{
     private static final int HEIGHT = 600;
     public boolean leftPressed = false;
     public boolean rightPressed = false;
+    private GameEngine game = new GameEngine(new InMemoryScoreStorage());
+    private final double frame = (float)1000/60;
 
-    public void init(){
+    public void init() {
         setSize(WIDTH, HEIGHT);
         setBackground(new Color(20, 25, 40));
         addKeyListeners();
     }
 
-    public void run(){
+    public void run() {
+        while (true) {
+            game.update(leftPressed, rightPressed);
+            drawGame();
+            pause(frame);
+        }
+
     }
 
 
@@ -27,6 +35,24 @@ public class Breakout extends GraphicsProgram{
 
         if(key == KeyEvent.VK_LEFT){leftPressed = true;}
         if(key == KeyEvent.VK_RIGHT){rightPressed = true;}
+
+        if(key == KeyEvent.VK_SPACE) {game.startgame();}
+        if(key == KeyEvent.VK_P) {game.pauseGame();}
+        if(key == KeyEvent.VK_R) {game.reset();}
+    }
+
+    public void keyReleased(KeyEvent e){
+        int key = e.getKeyCode();
+        if(key == KeyEvent.VK_LEFT){leftPressed = false;}
+        if(key == KeyEvent.VK_RIGHT){rightPressed = false;}
+    }
+
+    private void drawGame(){
+        drawStatus();
+        drawBall();
+        drawBricks();
+        drawMessage();
+        drawPaddle();
     }
 
     private void drawStatus(){
