@@ -69,8 +69,8 @@ public class GameEngine {
     private void checkPaddleCollision() {
         boolean hit = ball.getX() + ball.getSize() > paddle.getX()
                 && ball.getX() < paddle.getX() + paddle.getWidth()
-                && ball.getY() + ball.getSize() >= paddle.getHeight()
-                && ball.getY() < paddle.getHeight();
+                && ball.getY() + ball.getSize() >= paddle.getY()
+                && ball.getY() < paddle.getY() + paddle.getHeight();
 
         if (hit && ball.getVy() > 0) {
             ball.bounceOffPaddle(paddle);
