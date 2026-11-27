@@ -62,7 +62,7 @@ public class Breakout extends GraphicsProgram{
     private void drawStatus(){
         GRect bar = new GRect(0, 0, WIDTH, 35);
         bar.setFilled(true);
-        bar.setFillColor(new Color(10, 40, 30));
+        bar.setFillColor(new Color(75, 175, 190));
         add(bar);
 
         GLabel scoreBar = new GLabel("Score: " + game.getScore(), 20, 24);
