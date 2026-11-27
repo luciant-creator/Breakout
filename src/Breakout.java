@@ -15,7 +15,6 @@ public class Breakout extends GraphicsProgram{
     public void init(){
         setSize(WIDTH, HEIGHT);
         setBackground(new Color(20, 25, 40));
-        drawStatus();
         addKeyListeners();
     }
 

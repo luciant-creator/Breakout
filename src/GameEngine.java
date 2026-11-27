@@ -141,6 +141,21 @@ public class GameEngine {
         }
     }
 
+    public void startgame(){
+        if (state == GameState.READY){
+            ball.ballStart();
+            state = GameState.RUNNING;
+        }
+    }
+
+    public void pauseGame(){
+        if (state == GameState.RUNNING){
+            state = GameState.PAUSED;
+        } else if (state == GameState.PAUSED){
+            state = GameState.RUNNING;
+        }
+    }
+
 
     public void reset(){
         score = 0;
