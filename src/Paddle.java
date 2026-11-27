@@ -5,9 +5,7 @@ public class Paddle {
     private final double height = 15;
     private final double speed = 8;
 
-    public Paddle(){
-        reset();
-    }
+    public Paddle(){reset();}
 
     public void moveLeft(){
         x -= speed;
@@ -18,7 +16,6 @@ public class Paddle {
         x += speed;
         if (x > 700){x = 700;}
     }
-
 
     public void reset(){
         x = 350;

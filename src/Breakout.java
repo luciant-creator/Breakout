@@ -62,9 +62,9 @@ public class Breakout extends GraphicsProgram{
         bar.setFillColor(new Color(10, 40, 30));
         add(bar);
 
-        GLabel scoreBar = new GLabel("Score: ", 20, 24);
-        GLabel livesBar = new GLabel("Lives: ", 350, 24);
-        GLabel highScoreBar = new GLabel("Best: ", 680, 24);
+        GLabel scoreBar = new GLabel("Score: " + game.getScore(), 20, 24);
+        GLabel livesBar = new GLabel("Lives: " + game.getLives(), 350, 24);
+        GLabel highScoreBar = new GLabel("Best: " + game.getHighScore(), 680, 24);
         add(scoreBar);
         add(livesBar);
         add(highScoreBar);

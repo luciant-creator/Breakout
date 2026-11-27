@@ -11,7 +11,7 @@ public class Brick {
         y = 60 + row * 31;
     }
 
-    public boolean hit(){
+    public boolean hit() {
         if (destroyed){
             return false;
         }
